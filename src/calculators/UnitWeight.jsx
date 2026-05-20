@@ -9,7 +9,7 @@ import { usePersistentState } from '../utils/usePersistentState.js';
 
 const modes = [
   { id: 'sample', label: '6" Sample' },
-  { id: 'single', label: 'Single Unit Grams' },
+  { id: 'single', label: 'Less Than 6" Sample' },
 ];
 
 export default function UnitWeight({ onDolphinThemeToggle }) {
@@ -33,7 +33,11 @@ export default function UnitWeight({ onDolphinThemeToggle }) {
       );
     }
 
-    return calculateSingleUnitWeight(values.singleUnitGrams, values.unitsPerContainer);
+    return calculateSingleUnitWeight(
+      values.singleUnitGrams,
+      values.cutLength,
+      values.unitsPerContainer
+    );
   }, [mode, values]);
 
   function updateValue(key, nextValue) {
@@ -43,7 +47,7 @@ export default function UnitWeight({ onDolphinThemeToggle }) {
   return (
     <CalculatorCard
       title="Unit Weight"
-      summary="Use a 6-inch sample and cut length to calculate gram weight per unit."
+      summary="Use sample weight and cut length to calculate unit weight, gram weight per foot, and container weight."
       className="unit-weight-card"
       results={
         <div className="result-grid unit-weight-result-grid">
@@ -54,6 +58,12 @@ export default function UnitWeight({ onDolphinThemeToggle }) {
             />
           ) : null}
           {mode === 'sample' ? (
+            <ResultRow
+              label="Gram Weight/Foot"
+              value={result ? formatNumber(result.gramWeightPerFoot, { suffix: ' g/ft' }) : '-'}
+            />
+          ) : null}
+          {mode === 'single' ? (
             <ResultRow
               label="Gram Weight/Foot"
               value={result ? formatNumber(result.gramWeightPerFoot, { suffix: ' g/ft' }) : '-'}
@@ -115,12 +125,18 @@ export default function UnitWeight({ onDolphinThemeToggle }) {
         </div>
       ) : (
         <div className="maintain-gram-inputs">
-          <div className="input-grid two-up-input-grid unit-weight-single-grid">
+          <div className="input-grid unit-weight-input-grid unit-weight-single-grid">
             <NumberInput
-              label="Single Unit Grams"
+              label={'Less Than 6" Sample'}
               unit="g"
               value={values.singleUnitGrams}
               onChange={(nextValue) => updateValue('singleUnitGrams', nextValue)}
+            />
+            <NumberInput
+              label="Cut Length"
+              unit="inches"
+              value={values.cutLength}
+              onChange={(nextValue) => updateValue('cutLength', nextValue)}
             />
             <NumberInput
               label="Units Per Container"

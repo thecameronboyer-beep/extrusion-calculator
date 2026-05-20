@@ -379,8 +379,13 @@ export function calculateSixSampleWeight(sampleGramsValue, cutLengthValue = 6, u
   };
 }
 
-export function calculateSingleUnitWeight(singleUnitGramsValue, unitsPerContainerValue) {
+export function calculateSingleUnitWeight(
+  singleUnitGramsValue,
+  cutLengthValue,
+  unitsPerContainerValue
+) {
   const singleUnitGrams = toNumber(singleUnitGramsValue);
+  const cutLength = toNumber(cutLengthValue);
   const unitsPerContainer = toNumber(unitsPerContainerValue);
 
   if (!isPositive(singleUnitGrams)) {
@@ -389,6 +394,7 @@ export function calculateSingleUnitWeight(singleUnitGramsValue, unitsPerContaine
 
   return {
     singleUnitGrams,
+    gramWeightPerFoot: isPositive(cutLength) ? (singleUnitGrams / cutLength) * 12 : null,
     singleUnitPounds: singleUnitGrams / GRAMS_PER_POUND,
     containerWeightPounds: isPositive(unitsPerContainer)
       ? (singleUnitGrams * unitsPerContainer) / GRAMS_PER_POUND
