@@ -1,0 +1,93 @@
+const CACHE_NAME = 'extrusion-calculator-v1';
+const APP_ROOT = new URL('./', self.location.href).href;
+const CORE_ASSETS = [
+  './',
+  'site.webmanifest',
+  'app-icon.png',
+  'icon-512.png',
+  'icon-192.png',
+  'apple-touch-icon.png',
+  'favicon-32x32.png',
+  'favicon-16x16.png',
+].map((asset) => new URL(asset, self.location.href).href);
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => cache.addAll(CORE_ASSETS))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches
+      .keys()
+      .then((cacheNames) =>
+        Promise.all(
+          cacheNames
+            .filter((cacheName) => cacheName !== CACHE_NAME)
+            .map((cacheName) => caches.delete(cacheName))
+        )
+      )
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data?.type !== 'CACHE_URLS' || !Array.isArray(event.data.urls)) {
+    return;
+  }
+
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.all(
+        event.data.urls.map((url) =>
+          cache.add(new URL(url, self.location.href).href).catch(() => {
+            // Some browser-generated URLs cannot be cached; skip them.
+          })
+        )
+      )
+    )
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+  const requestUrl = new URL(request.url);
+
+  if (request.method !== 'GET' || requestUrl.origin !== self.location.origin) {
+    return;
+  }
+
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(APP_ROOT, copy));
+          return response;
+        })
+        .catch(() => caches.match(APP_ROOT))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      return fetch(request).then((response) => {
+        if (response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+        }
+
+        return response;
+      });
+    })
+  );
+});
