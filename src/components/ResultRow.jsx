@@ -26,16 +26,26 @@ export default function ResultRow({
 
     clearPressTimer();
     longPressTriggeredRef.current = false;
-    pressTimerRef.current = window.setTimeout(() => {
-      longPressTriggeredRef.current = true;
-      onLongPress();
-    }, 1000);
+    pressTimerRef.current = window.setTimeout(triggerLongPress, 1000);
+  }
+
+  function triggerLongPress() {
+    if (!onLongPress || longPressTriggeredRef.current) {
+      return;
+    }
+
+    clearPressTimer();
+    longPressTriggeredRef.current = true;
+    onLongPress();
   }
 
   function handleContextMenu(event) {
-    if (longPressTriggeredRef.current) {
-      event.preventDefault();
+    if (!onLongPress) {
+      return;
     }
+
+    event.preventDefault();
+    triggerLongPress();
   }
 
   useEffect(() => clearPressTimer, []);
