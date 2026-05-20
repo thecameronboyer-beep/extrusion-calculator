@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function ResultRow({
   label,
@@ -37,6 +37,8 @@ export default function ResultRow({
       event.preventDefault();
     }
   }
+
+  useEffect(() => clearPressTimer, []);
 
   return (
     <div
