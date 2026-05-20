@@ -1,8 +1,18 @@
 import ModeToggle from './ModeToggle.jsx';
+import DolphinDecorations from './DolphinDecorations.jsx';
+import ThemeToast from './ThemeToast.jsx';
 
-export default function AppShell({ calculators, activeCalculator, onCalculatorChange, children }) {
+export default function AppShell({
+  calculators,
+  activeCalculator,
+  onCalculatorChange,
+  children,
+  themeToast,
+}) {
   return (
     <div className="app-shell">
+      <DolphinDecorations />
+      <ThemeToast message={themeToast} />
       <main className="workbench">
         <aside className="mode-rail" aria-label="Calculator modes">
           <ModeToggle

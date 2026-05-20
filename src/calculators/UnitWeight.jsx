@@ -12,7 +12,7 @@ const modes = [
   { id: 'single', label: 'Single Unit Grams' },
 ];
 
-export default function UnitWeight() {
+export default function UnitWeight({ onDolphinThemeToggle }) {
   const [mode, setMode] = usePersistentState(
     'extrusion-calculator:unit-weight:mode',
     'sample'
@@ -73,6 +73,9 @@ export default function UnitWeight() {
           />
           <ResultRow
             label="Container Weight"
+            className="theme-unlock-target"
+            title="Long press to toggle Dolphin Theme"
+            onLongPress={onDolphinThemeToggle}
             value={
               result
                 ? formatNumber(result.containerWeightPounds, {
