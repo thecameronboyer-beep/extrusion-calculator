@@ -35,26 +35,27 @@
   --system-cyan-strong: #b2f6ff;
   --system-cyan-muted: rgba(120, 234, 255, 0.5);
   --app-background:
-    radial-gradient(circle at 18% 4%, rgba(176, 244, 255, 0.34), transparent 30%),
-    radial-gradient(circle at 88% 18%, rgba(255, 142, 213, 0.2), transparent 30%),
-    radial-gradient(circle at 76% 78%, rgba(96, 186, 255, 0.2), transparent 34%),
-    linear-gradient(160deg, #031c34 0%, #073b64 46%, #041426 100%);
-  --surface-bg: rgba(5, 36, 61, 0.88);
-  --surface-border: rgba(174, 243, 255, 0.42);
+    radial-gradient(circle at 18% 4%, rgba(190, 248, 255, 0.42), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(255, 132, 214, 0.32), transparent 32%),
+    radial-gradient(circle at 12% 78%, rgba(255, 157, 222, 0.18), transparent 28%),
+    radial-gradient(circle at 76% 78%, rgba(96, 186, 255, 0.28), transparent 34%),
+    linear-gradient(160deg, #031c34 0%, #084a78 45%, #041426 100%);
+  --surface-bg: rgba(5, 40, 66, 0.88);
+  --surface-border: rgba(255, 157, 222, 0.38);
   --panel-bg:
-    linear-gradient(180deg, rgba(12, 66, 95, 0.92), rgba(4, 22, 40, 0.98)),
-    radial-gradient(circle at 18% 0%, rgba(180, 246, 255, 0.13), transparent 42%),
-    radial-gradient(circle at 88% 18%, rgba(255, 142, 213, 0.085), transparent 38%);
-  --panel-border: rgba(164, 239, 255, 0.48);
+    linear-gradient(180deg, rgba(13, 76, 108, 0.92), rgba(4, 22, 40, 0.98)),
+    radial-gradient(circle at 18% 0%, rgba(190, 248, 255, 0.16), transparent 42%),
+    radial-gradient(circle at 88% 18%, rgba(255, 142, 213, 0.16), transparent 38%);
+  --panel-border: rgba(255, 157, 222, 0.42);
   --input-surface: rgba(7, 43, 68, 0.9);
   --input-fill: rgba(1, 12, 23, 0.92);
   --result-surface:
-    linear-gradient(180deg, rgba(10, 55, 83, 0.92), rgba(2, 16, 31, 0.98)),
-    radial-gradient(circle at 82% 12%, rgba(174, 243, 255, 0.1), transparent 44%),
-    radial-gradient(circle at 18% 92%, rgba(255, 142, 213, 0.07), transparent 42%);
+    linear-gradient(180deg, rgba(11, 62, 91, 0.92), rgba(2, 16, 31, 0.98)),
+    radial-gradient(circle at 82% 12%, rgba(184, 244, 255, 0.13), transparent 44%),
+    radial-gradient(circle at 18% 92%, rgba(255, 142, 213, 0.12), transparent 42%);
   --ui-radius: 13px;
-  --soft-glow: rgba(170, 240, 255, 0.28);
-  --dolphin-pink: #ff9dde;
+  --soft-glow: rgba(255, 157, 222, 0.28);
+  --dolphin-pink: #ff8bd6;
   --dolphin-baby-blue: #b8f4ff;
 }
 
@@ -1473,7 +1474,8 @@ h2 {
 }
 
 .dolphin-decoration,
-.ocean-bubble {
+.ocean-bubble,
+.pink-current {
   position: fixed;
   z-index: 1;
   pointer-events: none;
@@ -1486,13 +1488,14 @@ h2 {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 82% 86%, rgba(255, 157, 222, 0.17), transparent 24%),
+    radial-gradient(circle at 82% 86%, rgba(255, 139, 214, 0.28), transparent 26%),
+    radial-gradient(circle at 84% 12%, rgba(255, 190, 235, 0.16), transparent 18%),
     radial-gradient(circle at 12% 18%, rgba(184, 244, 255, 0.14), transparent 28%),
     linear-gradient(
       115deg,
       transparent 0%,
       rgba(184, 244, 255, 0.08) 38%,
-      rgba(255, 157, 222, 0.045) 48%,
+      rgba(255, 139, 214, 0.085) 48%,
       transparent 58%
     ),
     repeating-radial-gradient(
@@ -1514,7 +1517,7 @@ h2 {
 :root[data-theme='dolphin'] .production-progress-panel {
   box-shadow:
     0 0 26px rgba(184, 244, 255, 0.11),
-    0 0 20px rgba(255, 157, 222, 0.055),
+    0 0 24px rgba(255, 139, 214, 0.11),
     inset 0 0 30px rgba(86, 214, 255, 0.045);
 }
 
@@ -1535,17 +1538,17 @@ h2 {
   background: linear-gradient(135deg, rgba(26, 122, 154, 0.82), rgba(43, 24, 73, 0.92));
   box-shadow:
     0 0 18px rgba(184, 244, 255, 0.18),
-    0 0 14px rgba(255, 157, 222, 0.12);
+    0 0 18px rgba(255, 139, 214, 0.2);
 }
 
 :root[data-theme='dolphin'] .theme-toast {
-  border-color: rgba(255, 157, 222, 0.5);
+  border-color: rgba(255, 139, 214, 0.66);
   background:
     linear-gradient(90deg, rgba(5, 55, 82, 0.96), rgba(54, 22, 72, 0.94)),
-    radial-gradient(circle at 20% 50%, rgba(184, 244, 255, 0.16), transparent 42%);
+    radial-gradient(circle at 20% 50%, rgba(184, 244, 255, 0.18), transparent 42%);
   box-shadow:
     0 0 24px rgba(184, 244, 255, 0.24),
-    0 0 18px rgba(255, 157, 222, 0.2);
+    0 0 28px rgba(255, 139, 214, 0.32);
 }
 
 :root[data-theme='dolphin'] .calculator-card::after,
@@ -1558,8 +1561,9 @@ h2 {
   border-radius: inherit;
   background:
     radial-gradient(circle at 18% 12%, rgba(184, 244, 255, 0.08), transparent 4px),
-    radial-gradient(circle at 78% 24%, rgba(255, 157, 222, 0.065), transparent 3px),
-    radial-gradient(circle at 92% 72%, rgba(184, 244, 255, 0.06), transparent 5px);
+    radial-gradient(circle at 78% 24%, rgba(255, 139, 214, 0.12), transparent 4px),
+    radial-gradient(circle at 92% 72%, rgba(184, 244, 255, 0.06), transparent 5px),
+    linear-gradient(120deg, transparent, rgba(255, 139, 214, 0.045), transparent);
 }
 
 :root[data-theme='dolphin'] .progress-bar {
@@ -1570,7 +1574,7 @@ h2 {
 }
 
 :root[data-theme='dolphin'] .progress-bar span {
-  background: linear-gradient(90deg, #57dcff, #b8f4ff 64%, #ff9dde);
+  background: linear-gradient(90deg, #57dcff, #b8f4ff 48%, #ff8bd6);
 }
 
 :root[data-theme='dolphin'] .metric-delta.positive::after {
@@ -1590,23 +1594,57 @@ h2 {
 .dolphin-header {
   top: 82px;
   left: max(12px, calc(50% - 238px));
-  font-size: 1.45rem;
-  opacity: 0.62;
+  font-size: 1.8rem;
+  opacity: 0.76;
   filter:
-    drop-shadow(0 0 10px rgba(184, 244, 255, 0.36))
-    drop-shadow(0 0 8px rgba(255, 157, 222, 0.22));
+    drop-shadow(0 0 12px rgba(184, 244, 255, 0.44))
+    drop-shadow(0 0 14px rgba(255, 139, 214, 0.36));
   transform: rotate(-16deg);
 }
 
 .dolphin-peek {
-  right: max(-42px, calc(50% - 322px));
-  bottom: calc(env(safe-area-inset-bottom) - 58px);
-  font-size: clamp(12rem, 58vw, 18rem);
-  opacity: 0.72;
+  right: max(-58px, calc(50% - 342px));
+  bottom: calc(env(safe-area-inset-bottom) - 78px);
+  font-size: clamp(13rem, 64vw, 20rem);
+  opacity: 0.78;
   filter:
-    drop-shadow(0 0 30px rgba(184, 244, 255, 0.46))
-    drop-shadow(0 0 28px rgba(255, 157, 222, 0.26));
+    drop-shadow(0 0 34px rgba(184, 244, 255, 0.5))
+    drop-shadow(0 0 36px rgba(255, 139, 214, 0.34));
   transform: rotate(-12deg);
+}
+
+.dolphin-sidekick {
+  right: max(122px, calc(50% - 124px));
+  bottom: calc(env(safe-area-inset-bottom) + 36px);
+  font-size: clamp(3.1rem, 15vw, 5.5rem);
+  opacity: 0.46;
+  filter:
+    drop-shadow(0 0 18px rgba(184, 244, 255, 0.36))
+    drop-shadow(0 0 20px rgba(255, 139, 214, 0.28));
+  transform: rotate(18deg);
+  animation: dolphinBob 4.4s ease-in-out infinite;
+}
+
+.dolphin-tiny {
+  font-size: 1.35rem;
+  opacity: 0.55;
+  filter:
+    drop-shadow(0 0 10px rgba(184, 244, 255, 0.36))
+    drop-shadow(0 0 10px rgba(255, 139, 214, 0.26));
+  animation: dolphinBob 5.2s ease-in-out infinite;
+}
+
+.dolphin-tiny-one {
+  right: max(18px, calc(50% - 228px));
+  top: 168px;
+  transform: rotate(13deg);
+}
+
+.dolphin-tiny-two {
+  left: max(18px, calc(50% - 228px));
+  bottom: 30%;
+  transform: rotate(-22deg);
+  animation-delay: -2.4s;
 }
 
 .dolphin-swim {
@@ -1616,8 +1654,42 @@ h2 {
   opacity: 0.34;
   filter:
     drop-shadow(0 0 10px rgba(184, 244, 255, 0.34))
-    drop-shadow(0 0 8px rgba(255, 157, 222, 0.18));
+    drop-shadow(0 0 10px rgba(255, 139, 214, 0.24));
   animation: dolphinSwim 18s linear infinite;
+}
+
+.dolphin-swim-two {
+  top: 72%;
+  left: -74px;
+  font-size: 1.9rem;
+  opacity: 0.26;
+  animation: dolphinSwimTwo 24s linear infinite;
+  animation-delay: -8s;
+}
+
+.pink-current {
+  width: min(68vw, 330px);
+  height: 84px;
+  border-top: 2px solid rgba(255, 139, 214, 0.34);
+  border-radius: 50%;
+  opacity: 0.34;
+  filter:
+    drop-shadow(0 0 12px rgba(255, 139, 214, 0.22))
+    drop-shadow(0 0 16px rgba(184, 244, 255, 0.12));
+  animation: pinkCurrentDrift 9s ease-in-out infinite alternate;
+}
+
+.pink-current-one {
+  right: calc(50% - 250px);
+  top: 122px;
+  transform: rotate(-8deg);
+}
+
+.pink-current-two {
+  left: calc(50% - 250px);
+  bottom: 18%;
+  transform: rotate(14deg);
+  animation-delay: -4s;
 }
 
 .ocean-bubble {
@@ -1669,6 +1741,30 @@ h2 {
   animation-delay: -8s;
 }
 
+.bubble-five {
+  left: calc(50% - 225px);
+  bottom: 40%;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(255, 139, 214, 0.58);
+  box-shadow:
+    inset 0 0 10px rgba(255, 139, 214, 0.24),
+    0 0 14px rgba(255, 139, 214, 0.18);
+  animation-delay: -1.6s;
+}
+
+.bubble-six {
+  right: calc(50% - 235px);
+  bottom: 8%;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(255, 190, 235, 0.62);
+  box-shadow:
+    inset 0 0 10px rgba(255, 190, 235, 0.24),
+    0 0 14px rgba(255, 139, 214, 0.18);
+  animation-delay: -5.2s;
+}
+
 @keyframes waterShimmer {
   from {
     transform: translate3d(-16px, -8px, 0) scale(1);
@@ -1704,6 +1800,43 @@ h2 {
   }
 }
 
+@keyframes dolphinSwimTwo {
+  0% {
+    transform: translate3d(-60px, 10px, 0) rotate(8deg);
+  }
+
+  42% {
+    transform: translate3d(calc(100vw + 70px), -20px, 0) rotate(-12deg);
+  }
+
+  100% {
+    transform: translate3d(calc(100vw + 70px), -20px, 0) rotate(-12deg);
+  }
+}
+
+@keyframes dolphinBob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes pinkCurrentDrift {
+  from {
+    translate: -10px 0;
+    opacity: 0.26;
+  }
+
+  to {
+    translate: 12px -8px;
+    opacity: 0.44;
+  }
+}
+
 @keyframes tinyDolphinBob {
   0%,
   100% {
@@ -1718,7 +1851,10 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   :root[data-theme='dolphin'] body::before,
   .dolphin-swim,
+  .dolphin-sidekick,
+  .dolphin-tiny,
   .ocean-bubble,
+  .pink-current,
   :root[data-theme='dolphin'] .metric-delta.positive::after {
     animation: none;
   }
