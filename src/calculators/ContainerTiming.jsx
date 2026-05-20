@@ -96,7 +96,6 @@ function timePerContainerComparison(baselineHours, proposedHours) {
   return {
     label: '',
     value: proposedMetric.value,
-    unit: proposedMetric.unit,
     detail: impact.detail,
     tone: impact.tone,
   };
@@ -280,9 +279,6 @@ function ProductionLineSpeedInput({
         >
           Δ
         </button>
-      </div>
-      <div className={isDeltaActive ? 'line-speed-baseline' : 'line-speed-baseline placeholder'}>
-        {isDeltaActive ? `Baseline ${baselineValue} Feet/Min` : 'Delta baseline'}
       </div>
     </div>
   );
