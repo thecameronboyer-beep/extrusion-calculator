@@ -1,4 +1,4 @@
-const CACHE_NAME = 'extrusion-calculator-v1';
+const CACHE_NAME = 'extrusion-calculator-v2';
 const APP_ROOT = new URL('./', self.location.href).href;
 const CORE_ASSETS = [
   './',
@@ -6,6 +6,8 @@ const CORE_ASSETS = [
   'app-icon.png',
   'icon-512.png',
   'icon-192.png',
+  'maskable-icon-512.png',
+  'maskable-icon-192.png',
   'apple-touch-icon.png',
   'favicon-32x32.png',
   'favicon-16x16.png',
