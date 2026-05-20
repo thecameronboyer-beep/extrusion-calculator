@@ -1,4 +1,4 @@
-const CACHE_NAME = 'extrusion-calculator-v5';
+const CACHE_NAME = 'extrusion-calculator-v6';
 const APP_ROOT = new URL('./', self.location.href).href;
 const CORE_ASSETS = [
   './',

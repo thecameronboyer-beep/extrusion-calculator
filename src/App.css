@@ -1597,13 +1597,13 @@ h2 {
 }
 
 .dolphin-peek {
-  right: max(-24px, calc(50% - 284px));
-  bottom: calc(env(safe-area-inset-bottom) - 30px);
-  font-size: clamp(7rem, 34vw, 10.75rem);
-  opacity: 0.66;
+  right: max(-42px, calc(50% - 322px));
+  bottom: calc(env(safe-area-inset-bottom) - 58px);
+  font-size: clamp(12rem, 58vw, 18rem);
+  opacity: 0.72;
   filter:
-    drop-shadow(0 0 22px rgba(184, 244, 255, 0.38))
-    drop-shadow(0 0 20px rgba(255, 157, 222, 0.2));
+    drop-shadow(0 0 30px rgba(184, 244, 255, 0.46))
+    drop-shadow(0 0 28px rgba(255, 157, 222, 0.26));
   transform: rotate(-12deg);
 }
 
